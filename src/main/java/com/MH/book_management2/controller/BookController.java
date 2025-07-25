@@ -22,6 +22,14 @@ public class BookController {
         return "books";
     }
 
+    @GetMapping("/books/{id}")
+    public String detail(@PathVariable Long id, Model model) {
+        model.addAttribute("book", bookRepository.findById(id));
+        model.addAttribute("authors", authorRepository.finalAll());
+
+        return "book_detail";
+    }
+
     @GetMapping("/books/new")
     public String form(Model model) {
         model.addAttribute("book", new Book());

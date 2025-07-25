@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{/styles.css}"/>
+  <title>Dashboard</title>
+</head>
+<body>
+<h1>저자별 도서 수</h1>
+<table>
+  <tr>
+    <th>Author ID</th>
+    <th>Author Name</th>
+    <th>Count</th>
+  </tr>
+  <tr th:each="row: ${count}">
+    <td th:text="${row.authorId}"></td>
+    <td th:text="${row.authorName}"></td>
+    <td th:text="${row.bookCount}"></td>
+  </tr>
+</table>
+</body>
+</html>
